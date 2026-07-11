@@ -23,7 +23,7 @@ public class JwtService {
 
     private final JwtConfig jwtConfig;
 
-    private SecretKey getSigningKey() {
+    private SecretKey getSignKey() {
         byte[] keyBytes = jwtConfig.getSecret().getBytes(StandardCharsets.UTF_8);
         return Keys.hmacShaKeyFor(keyBytes);
     }
