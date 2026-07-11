@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: talentos-backend
+  profiles:
+    active: local # Default profile
+  datasource:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate # Database schema managed by Flyway
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        use_sql_comments: true
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+
+# OpenAPI Swagger UI Configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method
+    tags-sorter: alpha
+    doc-expansion: none
+
+# Application Specific Configurations (JWT, APIs, Storage)
+app:
+  jwt:
+    secret: ${JWT_SECRET:dGFsZW50b3Mtc3VwZXItc2VjcmV0LWtleS1mb3ItanctdG9rZW4tc2lnbmluZy1wcm9kdWN0aW9uLXJlYWR5}
+    expiration-ms: 604800000 # 7 days in milliseconds
+  supabase:
+    url: ${SUPABASE_URL:https://placeholder.supabase.co}
+    key: ${SUPABASE_KEY:placeholder-key}
+    bucket-name: resumes
+  gemini:
+    api-key: ${GEMINI_API_KEY:placeholder-gemini-key}
+    model-version: gemini-1.5-pro
