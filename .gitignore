@@ -1,54 +1,28 @@
-# Dependencies
-node_modules/
-vendor/
-__pycache__/
-*.pyc
-.venv/
-venv/
-env/
-
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# Build outputs
-dist/
-build/
-out/
-*.egg-info/
-
-# IDE / Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.project
-.classpath
-.settings/
-
-# OS files
+# OS
 .DS_Store
 Thumbs.db
-desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Java
+target/
+*.class
+*.jar
+*.war
+
+# Node
+node_modules/
+.next/
+dist/
+
+# Environment
+.env
+.env.*
 
 # Logs
-logs/
 *.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
-# Testing
+# Coverage
 coverage/
-.nyc_output/
-*.cover
-
-# Docker
-docker-compose.override.yml
-
-# Misc
-*.bak
-*.tmp
-*.temp
